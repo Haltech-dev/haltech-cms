@@ -51,7 +51,7 @@ class JobOpenings extends \common\models\CustomActiveRecord
     public function rules()
     {
         return [
-            [['title', 'position', 'description', 'company_name', 'location', 'work_type', 'job_type'], 'required'],
+            // [['title', 'position', 'description', 'company_name', 'location', 'work_type', 'job_type'], 'required'],
             [['description', 'work_type', 'skills', 'stages', 'document', 'job_type'], 'string'],
             [['posted_at', 'expires_at', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['status_active', 'created_by', 'updated_by', 'deleted_by'], 'integer'],

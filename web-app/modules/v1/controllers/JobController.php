@@ -38,7 +38,7 @@ class JobController extends WebActiveAuthController
     {
         $model = new JobOpenings();
         if ($model->load(Yii::$app->request->post(), '')) {
-            $image = UploadedFile::getInstanceByName('cv');
+            $image = UploadedFile::getInstanceByName('image');
             $fileExt = ['jpg', 'jpeg', 'png'];
             if (!$image) {
                 return $this->responseAngularNotFound('upload error, unknow image format');
@@ -52,7 +52,7 @@ class JobController extends WebActiveAuthController
             $filename = $name . "-" . time() . '.' . $image->extension;
             $path = $this->pathProduct  . $filename;
             $model->path = $path;
-            $model->pdf_url = Yii::$app->params['host'] . '/' . $path;
+            $model->image_url = Yii::$app->params['host'] . '/' . $path;
             if ($model->validate() && $image->saveAs(Yii::getAlias('@baseweb') .'/'. $path)) {
 
                 $model->save(false);

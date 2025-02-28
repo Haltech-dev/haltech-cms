@@ -61,6 +61,10 @@ return [
         'session' => [
             // this is the name of the session cookie used for login on the WebApp
             'name' => 'advanced-WebApp',
+
+            'class' => 'yii\web\Session',
+            'savePath' => sys_get_temp_dir(), // Uses a writable temp directory
+   
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -106,13 +110,13 @@ return [
                     'pluralize' => false,
                     'controller' => [
                         "v1/blog",
+                        "v1/job",
                         "v1/category",
                         "v1/feature",
                         "v1/color",
                         "v1/theme",
                         "v1/product",
                         "v1/banner",
-                        "v1/blog",
                         "v1/contact-us",
                         "v1/subscriber",
                         // lp
