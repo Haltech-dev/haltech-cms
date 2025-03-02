@@ -123,6 +123,8 @@ return [
                         "lp/category",
                         "lp/feature",
                         "lp/color",
+                        "v1/lp/job",
+                        "v1/lp/blog",
                         "lp/theme",
                         "lp/product",
                         "lp/product-color",
