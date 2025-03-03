@@ -40,7 +40,7 @@ class BlogSearch extends Blog
      */
     public function search($params)
     {
-        $query = Blog::find();
+        $query = Blog::find()->orderBy(['id' => SORT_DESC]);
 
         // add conditions that should always apply here
 

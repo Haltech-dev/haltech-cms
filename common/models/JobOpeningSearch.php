@@ -40,7 +40,7 @@ class JobOpeningSearch extends JobOpenings
      */
     public function search($params)
     {
-        $query = JobOpenings::find();
+        $query = JobOpenings::find()->orderBy(['id' => SORT_DESC]);
 
         // add conditions that should always apply here
 

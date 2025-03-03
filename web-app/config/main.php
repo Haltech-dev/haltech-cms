@@ -111,35 +111,18 @@ return [
                     'controller' => [
                         "v1/blog",
                         "v1/job",
-                        "v1/category",
-                        "v1/feature",
-                        "v1/color",
-                        "v1/theme",
-                        "v1/product",
-                        "v1/banner",
-                        "v1/contact-us",
-                        "v1/subscriber",
+                        "v1/user-management",
                         // lp
-                        "lp/category",
-                        "lp/feature",
-                        "lp/color",
                         "v1/lp/job",
                         "v1/lp/blog",
-                        "lp/theme",
-                        "lp/product",
-                        "lp/product-color",
-                        "lp/product-packaging",
-                        "lp/packaging",
-                        "lp/banner",
-                        "lp/blog",
-                        "lp/contact-us",
-                        "lp/subscriber",
                     ],
                     'extraPatterns' => [
                         'OPTIONS search' => 'options',
                         'OPTIONS view' => 'options',
                         'OPTIONS update' => 'options',
                         'OPTIONS list' => 'options',
+                        'OPTIONS update-password' => 'options',
+                        'OPTIONS reactivate' => 'options',
 
 
                     ]

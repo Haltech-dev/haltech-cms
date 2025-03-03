@@ -58,6 +58,8 @@ class User extends MdmUser
     public function rules()
     {
         return [
+            ['username', 'unique'],
+            ['email', 'unique'],
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
@@ -222,4 +224,20 @@ class User extends MdmUser
         return $this->hasOne(UserDetail::class, ['user_id' => 'id'] );
         
     }
+
+    public function extraFields()
+    {
+        return ['userDetail'];
+    }
+
+    public function fields()
+    {
+        $fields = parent::fields();
+
+        // remove fields that contain sensitive information
+        unset($fields['auth_key'], $fields['password_hash'], $fields['password_reset_token'], $fields['verification_token']);
+
+        return $fields;
+    }
+
 }

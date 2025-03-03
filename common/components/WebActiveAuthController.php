@@ -115,7 +115,7 @@ class WebActiveAuthController extends ActiveController
      */
     public function responseAngularNotFound($errors, $message = false)
     {
-        Yii::$app->response->statusCode = 200;
+        Yii::$app->response->statusCode = 400;
         return ['message' => $errors];
     }
     
@@ -187,11 +187,12 @@ class WebActiveAuthController extends ActiveController
     */
     public function parsingError($objs)
     {
-        $data = '';
+        // $data = '';
+        $data = [];
         foreach ($objs as $obj) {
-            $data = $data . $obj[0];
+            $data[] = $obj[0];
         }
-        return $data;
+        return $data[0];
     }
 
     public function responseAngularSuccess200($data)

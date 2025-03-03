@@ -92,4 +92,13 @@ class UserDetail extends \common\models\CustomActiveRecord
             'nip' => 'Nip',
         ];
     }
+
+    public $image_url;
+    public function fields()
+    {
+        $fields = parent::fields();
+        $this->image_url = Yii::$app->params['host']. $this->picture;
+        $fields['image_url'] = "image_url";
+        return $fields;
+    }
 }
