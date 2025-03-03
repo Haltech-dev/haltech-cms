@@ -9,7 +9,7 @@ use common\models\BlogSearch;
 /**
  * Site controller
  */
-class BlogController extends UnguardActiveAuthController
+class ProductController extends UnguardActiveAuthController
 {
     public $modelClass = Blog::class;
 
