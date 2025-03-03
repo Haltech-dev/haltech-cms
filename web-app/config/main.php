@@ -111,10 +111,12 @@ return [
                     'controller' => [
                         "v1/blog",
                         "v1/job",
+                        "v1/product",
                         "v1/user-management",
                         // lp
                         "v1/lp/job",
                         "v1/lp/blog",
+                        "v1/lp/product",
                     ],
                     'extraPatterns' => [
                         'OPTIONS search' => 'options',
