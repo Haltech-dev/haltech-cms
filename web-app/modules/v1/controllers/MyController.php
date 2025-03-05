@@ -33,6 +33,29 @@ class MyController extends AuthController
         ];
 
     }
+
+    function actionInfo()
+    {
+        $user_id = Yii::$app->user->id;
+        $user = User::findOne($user_id);
+        $userDetail = UserDetail::findOne(['user_id' => $user_id]);
+
+        return [
+            'status' => 'success',
+            'data' => [
+                "id" => $user->id,
+                "email" => $user->email,
+                "username" => $user->username,
+                "userDetail" => [
+                    "id" => $userDetail->id,
+                    "full_name" => $userDetail->full_name,
+                    "job_title" => $userDetail->job_title,
+                    "picture" => $userDetail->picture,
+                ],
+            ],
+        ];
+
+    }
     
 
     public function actionUpdatePassword()

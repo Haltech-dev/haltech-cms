@@ -122,6 +122,7 @@ return [
                         'OPTIONS search' => 'options',
                         'OPTIONS view' => 'options',
                         'OPTIONS my' => 'options',
+                        'OPTIONS info' => 'options',
                         'OPTIONS update' => 'options',
                         'OPTIONS list' => 'options',
                         'OPTIONS update-password' => 'options',
