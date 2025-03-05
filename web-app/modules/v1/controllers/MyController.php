@@ -4,6 +4,7 @@ namespace WebApp\modules\v1\controllers;
 
 use common\components\CustomController;
 use common\models\User;
+use common\models\UserDetail;
 use Yii;
 use yii\web\BadRequestHttpException;
 use yii\web\UploadedFile;
@@ -12,11 +13,28 @@ class MyController extends CustomController
 {
     function actionIndex()
     {
+        $user_id = Yii::$app->user->id;
+        $user = User::findOne($user_id);
+        $userDetail = UserDetail::findOne(['user_id' => $user_id]);
+
         return [
             'status' => 'success',
-            'message' => 'Welcome to MyController',
+            'data' => [
+                "id" => $user->id,
+                "email" => $user->email,
+                "username" => $user->username,
+                "userDetail" => [
+                    "id" => $userDetail->id,
+                    "full_name" => $userDetail->full_name,
+                    "job_title" => $userDetail->job_title,
+                    "picture" => $userDetail->picture,
+                ],
+            ],
         ];
+
     }
+    
+
     public function actionUpdatePassword()
     {
         $user_id = Yii::$app->user->id;

@@ -61,7 +61,7 @@ class ProductSearch extends Product
             'id' => $this->id,
             'is_published' => $this->is_published,
             'published_at' => $this->published_at,
-            'status_active' => $this->status_active,
+            'status_active' => 1,
             'created_by' => $this->created_by,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
