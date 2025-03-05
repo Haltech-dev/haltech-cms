@@ -3,13 +3,14 @@
 namespace WebApp\modules\v1\controllers;
 
 use common\components\CustomController;
+use common\components\WebAuthController;
 use common\models\User;
 use common\models\UserDetail;
 use Yii;
 use yii\web\BadRequestHttpException;
 use yii\web\UploadedFile;
 
-class MyController extends AuthController
+class MyController extends WebAuthController
 {
     function actionIndex()
     {
