@@ -36,6 +36,15 @@ class MyController extends AuthController
 
     function actionInfo()
     {
+        $headers = Yii::$app->request->headers;
+        $authHeader = $headers->get('Authorization');
+        if ($authHeader !== null && preg_match('/^Bearer\s+(.*?)$/', $authHeader, $matches)) {
+            $token = $matches[1];
+        } else {
+            throw new BadRequestHttpException("Authorization header is missing or invalid.");
+        }
+        var_dump($token);
+        die();
         $user_id = Yii::$app->user->id;
         $user = User::findOne($user_id);
         $userDetail = UserDetail::findOne(['user_id' => $user_id]);
