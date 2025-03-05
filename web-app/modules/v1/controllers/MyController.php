@@ -43,11 +43,10 @@ class MyController extends AuthController
         } else {
             throw new BadRequestHttpException("Authorization header is missing or invalid.");
         }
-        var_dump($token);
-        die();
-        $user_id = Yii::$app->user->id;
-        $user = User::findOne($user_id);
-        $userDetail = UserDetail::findOne(['user_id' => $user_id]);
+        
+        // $user_id = Yii::$app->user->id;
+        $user = User::findIdentityByAccessToken($token);
+        $userDetail = UserDetail::findOne(['user_id' => $user->id]);
 
         return [
             'status' => 'success',
