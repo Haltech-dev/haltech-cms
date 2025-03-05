@@ -9,7 +9,7 @@ use Yii;
 use yii\web\BadRequestHttpException;
 use yii\web\UploadedFile;
 
-class MyController extends CustomController
+class MyController extends AuthController
 {
     function actionIndex()
     {
