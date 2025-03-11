@@ -44,7 +44,7 @@ class Blog extends \common\models\CustomActiveRecord
     {
         return [
             [['title'], 'required'],
-            [['short_desc', 'content'], 'string'],
+            [['short_desc', 'content', 'references'], 'string'],
             [['content'], 'string', 'max' => 10000000], // 1 million characters
             [['is_published', 'status_active', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['published_at', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
