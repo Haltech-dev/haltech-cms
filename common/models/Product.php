@@ -42,7 +42,7 @@ class Product extends \common\models\CustomActiveRecord
     {
         return [
             [['title'], 'required'],
-            [['short_desc', 'content'], 'string'],
+            [['short_desc', 'content', 'content_id', 'content_en'], 'string'],
             [['is_published', 'status_active', 'created_by', 'updated_by', 'deleted_by', 'position'], 'integer'],
             [['published_at', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['category', 'title', 'image_url', 'slug', 'path'], 'string', 'max' => 255],
