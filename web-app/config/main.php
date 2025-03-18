@@ -112,11 +112,13 @@ return [
                         "v1/blog",
                         "v1/job",
                         "v1/product",
+                        "v1/showcase",
                         "v1/user-management",
                         // lp
                         "v1/lp/job",
                         "v1/lp/blog",
                         "v1/lp/product",
+                        "v1/lp/showcase",
                     ],
                     'extraPatterns' => [
                         'OPTIONS search' => 'options',
