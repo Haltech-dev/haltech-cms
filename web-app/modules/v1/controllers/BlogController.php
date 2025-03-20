@@ -37,13 +37,13 @@ class BlogController extends WebActiveAuthController
         $model = new Blog();
         if ($model->load(Yii::$app->request->post(), '')) {
             $image = UploadedFile::getInstanceByName('image');
-            $fileExt = ['jpg', 'jpeg', 'png'];
+            $fileExt = ['jpg', 'jpeg', 'png', 'webp'];
             if (!$image) {
                 return $this->responseAngularNotFound('upload error, unknow image format');
             }
 
             if (!in_array($image->extension, $fileExt)) {
-                return $this->responseAngularNotFound('Upload gagal, dokumen harus berupa file Excel.');
+                return $this->responseAngularNotFound('Upload gagal, dokumen harus berupa format' . implode(", ", $fileExt));
             }
             $name = $image->baseName;
 
@@ -92,11 +92,11 @@ class BlogController extends WebActiveAuthController
 
         if ($model->load(Yii::$app->request->post(), '')) {
             $image = UploadedFile::getInstanceByName('image');
-            $fileExt = ['jpg', 'jpeg', 'png'];
+            $fileExt = ['jpg', 'jpeg', 'png', 'webp'];
             if ($image) {
 
                 if (!in_array($image->extension, $fileExt)) {
-                    return $this->responseAngularNotFound('Upload gagal, dokumen harus berupa file Excel.');
+                    return $this->responseAngularNotFound('Upload gagal, dokumen harus berupa format' . implode(", ", $fileExt));
                 }
                 $oldPath = $model->path;
                 $oldFile =  $oldPath;
