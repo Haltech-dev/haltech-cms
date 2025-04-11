@@ -79,4 +79,16 @@ class Blog extends \common\models\CustomActiveRecord
             'reviewer' => 'Reviewer',
         ];
     }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if(empty($this->slug)){
+                $this->slug = date('Ymdhis') . '-' .  \yii\helpers\Inflector::slug($this->title);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

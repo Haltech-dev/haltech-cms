@@ -39,8 +39,8 @@ class Showcase extends \common\models\CustomActiveRecord
     {
         return [
             [['title_id'], 'required'],
-            [['short_desc'], 'string'],
-            [['position', 'status_active', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
+            [['short_desc', 'link'], 'string'],
+            [['is_comingsoon','position', 'status_active', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['title_en', 'title_id', 'image_url', 'path'], 'string', 'max' => 255],
         ];
