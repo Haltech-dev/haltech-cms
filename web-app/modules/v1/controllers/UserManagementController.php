@@ -144,8 +144,8 @@ class UserManagementController extends WebActiveAuthController
         $model = $this->findModel($id);
         $modelDetail = $this->findDetailModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if ($modelDetail->load(Yii::$app->request->post()) && $modelDetail->save()) {
+        if ($model->load(Yii::$app->request->bodyParams, "") && $model->save()) {
+            if ($modelDetail->load(Yii::$app->request->bodyParams, "") && $modelDetail->save()) {
                 return $model;
             }
         }
