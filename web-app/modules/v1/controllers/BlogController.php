@@ -35,7 +35,7 @@ class BlogController extends WebActiveAuthController
     function actionCreate()
     {
         $model = new Blog();
-        if ($model->load(Yii::$app->request->post(), '')) {
+        if ($model->load(Yii::$app->request->bodyParams, '')) {
             $image = UploadedFile::getInstanceByName('image');
             $fileExt = ['jpg', 'jpeg', 'png', 'webp'];
             if (!$image) {

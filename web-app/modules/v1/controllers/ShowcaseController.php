@@ -73,8 +73,15 @@ class ShowcaseController extends WebActiveAuthController
         if (!$model) {
             return $this->responseAngularNotFound('data not found');
         }
-
-        if ($model->load(Yii::$app->request->post(), '')) {
+        
+        // $model->load(Yii::$app->request->bodyParams, '');
+        // echo "<pre>";
+        // var_dump(Yii::$app->request->bodyParams);
+        // var_dump($id);
+        // var_dump($model->attributes);
+        // echo "<pre>";
+        // die();    
+        if ($model->load(Yii::$app->request->bodyParams, '')) {
             $image = UploadedFile::getInstanceByName('image');
             $fileExt = ['jpg', 'jpeg', 'png', 'webp'];
             if ($image) {
@@ -104,7 +111,7 @@ class ShowcaseController extends WebActiveAuthController
                     return $this->responseAngularNotFound($this->parsingError($model->errors));
                 }
             }
-
+            
             if ($model->validate()) {
 
                 $model->save(false);

@@ -48,7 +48,6 @@ return [
                 'application/json' => 'yii\web\JsonParser',
                 'multipart/form-data' => 'yii\web\MultipartFormDataParser'
             ]
-
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
@@ -94,6 +93,7 @@ return [
                         'v1/cms-content',
                         'v1/commerce-link',
                         'v1/product',
+                        'v1/showcase',
                         'v1/product-detail',
                         'v1/upload',
 

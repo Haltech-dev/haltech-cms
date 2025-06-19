@@ -75,7 +75,7 @@ class ProductController extends WebActiveAuthController
             return $this->responseAngularNotFound('data not found');
         }
 
-        if ($model->load(Yii::$app->request->post(), '')) {
+        if ($model->load(Yii::$app->request->bodyParams, '')) {
             $image = UploadedFile::getInstanceByName('image');
             $fileExt = ['jpg', 'jpeg', 'png', 'webp'];
             if ($image) {
