@@ -33,7 +33,7 @@ class UserManagementController extends WebActiveAuthController
         // $actions['index']['prepareDataProvider'] = [$this, 'prepareDataProvider'];
 
         unset($actions['create']);
-        // unset($actions['update']);
+        unset($actions['update']);
         unset($actions['delete']);
         return $actions;
     }
@@ -143,8 +143,14 @@ class UserManagementController extends WebActiveAuthController
     {
         $model = $this->findModel($id);
         $modelDetail = $this->findDetailModel($id);
-
-        if ($model->load(Yii::$app->request->bodyParams, "") && $model->save()) {
+        $params = Yii::$app->request->bodyParams;
+        if ($model->load(Yii::$app->request->bodyParams, "") ) {
+            if (isset($params['password']) && $params['password'] !== null && $params['password'] !== "null") {
+                // var_dump($params['password']);
+                // die();
+                $model->setPassword($params['password']);
+            }
+            $model->save();
             if ($modelDetail->load(Yii::$app->request->bodyParams, "") && $modelDetail->save()) {
                 return $model;
             }
